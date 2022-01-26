@@ -13,7 +13,7 @@ if(USE_ADDER)
     list(APPEND EXTRA_LIBS Adder)
     list(APPEND EXTRA_INCLUDES "Adder")
     list(APPEND EXTRA_LINKS adder)
-    
+
 endif()
 
 
@@ -60,5 +60,7 @@ target_link_directories(${PROJECT_NAME}
 )
 
 
-
 target_link_libraries(${PROJECT_NAME} ${EXTRA_LINKS} glfw)
+
+INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
+INSTALL(FILES "${PROJECT_BINARY_DIR}/CT_Config.h" DESTINATION include)

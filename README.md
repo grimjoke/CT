@@ -4,3 +4,7 @@
         ./configure.sh
         ./build.sh
         ./run.sh
+
+## To install run :
+        sudo ./install.sh 
+        
