@@ -1,11 +1,17 @@
 #include <iostream>
 #include <adder.h>
 #include <GLFW/glfw3.h>
+#include <CT_Config.h>
 
-int main(){
+int main(int argc, char* argv[]){
+
+
+
     std::cout << "Hello, World !" << std::endl;
 
     std::cout << add(72.1, 73.8) << std::endl;
+
+    std::cout << argv[0] << " Version " << CT_VERSION_MAJOR << "." << CT_VERSION_MINOR << "\n"; 
 
     GLFWwindow *window;
     if( !glfwInit() )

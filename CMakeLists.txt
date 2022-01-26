@@ -1,6 +1,16 @@
 # boilerplate
 cmake_minimum_required(VERSION 3.16.3)
-project(cmake_test VERSION 0.1.0)
+project(CT VERSION 0.2.0)
+
+configure_file(CT_Config.h.in CT_Config.h)
+
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+
+
+add_subdirectory(Adder)
 
 
 # DOWNLOAD ALL SUBMODULES
@@ -24,7 +34,6 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/external/glfw/CMakeLists.txt")
     message(FATAL_ERROR "The glfw submodule was not downloaded! GIT_SUBMODULE was turned off or failed. Please checkout ")
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
 
 target_include_directories(${PROJECT_NAME} 
     PUBLIC Adder 
@@ -35,8 +44,6 @@ target_link_directories(${PROJECT_NAME}
     PRIVATE Adder
     PRIVATE external/glfw/src
 )
-
-add_subdirectory(Adder)
 
 
 add_subdirectory(external/glfw)
